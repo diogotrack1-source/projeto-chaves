@@ -1,0 +1,137 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.08 0.005 0);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.12 0.01 20);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.12 0.01 20);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.62 0.24 27);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.7 0.26 25);
+  --secondary: oklch(0.18 0.02 20);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.16 0.01 20);
+  --muted-foreground: oklch(0.65 0.02 20);
+  --accent: oklch(0.62 0.24 27);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.6 0.24 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.2 0.02 20);
+  --input: oklch(0.2 0.02 20);
+  --ring: oklch(0.62 0.24 27);
+
+  --gradient-primary: linear-gradient(135deg, oklch(0.62 0.24 27), oklch(0.5 0.22 20));
+  --gradient-radial: radial-gradient(circle at 50% 0%, oklch(0.3 0.18 25 / 0.4), transparent 60%);
+  --shadow-glow: 0 0 40px -8px oklch(0.62 0.24 27 / 0.55);
+  --shadow-glow-strong: 0 0 60px -10px oklch(0.62 0.24 27 / 0.8);
+  --shadow-card: 0 10px 40px -10px oklch(0 0 0 / 0.6);
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #070707;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .bg-gradient-radial {
+    background: var(--gradient-radial);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-glow-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  .text-gradient-primary {
+    background: linear-gradient(135deg, #ff4d4d, #ff2b2b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 30px -8px oklch(0.62 0.24 27 / 0.5); }
+  50% { box-shadow: 0 0 50px -4px oklch(0.62 0.24 27 / 0.9); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
