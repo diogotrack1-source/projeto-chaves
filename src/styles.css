@@ -4,6 +4,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Poppins hospedada localmente (subset latin, cobre português) */
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/poppins-latin-400.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/poppins-latin-500.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 600; font-display: swap; src: url("/fonts/poppins-latin-600.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 700; font-display: swap; src: url("/fonts/poppins-latin-700.woff2") format("woff2"); }
+@font-face { font-family: "Poppins"; font-style: normal; font-weight: 800; font-display: swap; src: url("/fonts/poppins-latin-800.woff2") format("woff2"); }
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
